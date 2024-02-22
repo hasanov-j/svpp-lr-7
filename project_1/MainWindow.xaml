@@ -1,0 +1,48 @@
+﻿<Window x:Class="project_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="645" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0">
+            <Button x:Name="buttonView" Height ="50" Margin="10" Click="buttonView_Click">Просмотр</Button>
+            <Button x:Name="buttonInsert" Height ="50" Margin="10" Click="buttonInsert_Click">Вставить</Button>
+            <Button x:Name="buttonFind" Height ="50" Margin="10" Click="buttonFind_Click">Найти</Button>
+            <Button x:Name="buttonChange" Height ="50" Margin="10" Click="buttonChange_Click">Обновить</Button>
+            <Button x:Name="buttonDelete" Height ="50" Margin="10" Click="buttonDelete_Click">Удалить</Button>
+        </StackPanel>
+        
+        <StackPanel x:Name="stackpanelEmployee" Grid.Column="1" Background="Beige">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="200" Margin="10">Имя</Label>
+                <TextBox x:Name="textBoxFirstName" Width="200" Margin="10" Text="{Binding Path=Firstname}"></TextBox>
+            </StackPanel> 
+            <StackPanel Orientation="Horizontal">
+                <Label Width="200" Margin="10">Фамилия</Label>
+                <TextBox x:Name="textBoxLastName" Width="200" Margin="10" Text="{Binding Path=Lastname}"></TextBox>
+            </StackPanel> 
+            <StackPanel Orientation="Horizontal">
+                <Label Width="200" Margin="10">Дата рождения</Label>
+                <DatePicker x:Name="datePickerDob" Width="200" Margin="10" SelectedDate="{Binding Path=DateOfBirth}" DisplayDateStart="1900-01-01" IsTodayHighlighted="True"></DatePicker>
+            </StackPanel> 
+            <StackPanel Orientation="Horizontal">
+                <Label Width="200" Margin="10">Должность</Label>
+                <TextBox x:Name="textBoxPosition" Width="200" Margin="10" Text="{Binding Path=Position}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="200" Margin="10">Сумма</Label>
+                <TextBox x:Name="textBoxSalary" Width="200" Margin="10" Text="{Binding Path=Salary}"></TextBox>
+            </StackPanel>
+            <ListBox x:Name="listBox"  Height="400" ItemsSource="{Binding}" Background="LightCyan"></ListBox>
+        </StackPanel>
+
+    </Grid>
+</Window>
